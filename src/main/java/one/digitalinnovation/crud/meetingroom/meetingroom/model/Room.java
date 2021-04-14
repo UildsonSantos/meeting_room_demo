@@ -3,6 +3,8 @@ package one.digitalinnovation.crud.meetingroom.meetingroom.model;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="meetingroom")
@@ -16,6 +18,8 @@ public class Room {
     private long id;
 
     @Column(name = "name", nullable = false)
+    @NotNull
+    @Size(min = 2, message = "First Name should have atleast 2 characters")
     private String name;
 
     @Column(name = "date", nullable = false)
